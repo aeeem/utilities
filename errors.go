@@ -13,6 +13,7 @@ var (
 	ErrBadParamInput = errors.New("Given Param is not valid")
 	// ErrUnauthorized will throw if the given request-body or params is not valid
 	ErrUnauthorized = errors.New("Unauthorize")
+	ErrForbiden=errors.New("The Resource Is Forbidden")
 	// ErrDuplicateLogin  will throw if the given request-body or params is not valid
 	ErrDuplicateLogin = errors.New("User Already Login")
 )
