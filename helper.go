@@ -11,6 +11,9 @@ const (
 
 // DecodeCursor will decode cursor from user for mysql
 func DecodeCursor(encodedTime string) (time.Time, error) {
+	if encodedTime == "" {
+		encodedTime = EncodeCursor(time.Time{})
+	}
 	byt, err := base64.StdEncoding.DecodeString(encodedTime)
 	if err != nil {
 		return time.Time{}, err
