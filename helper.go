@@ -51,24 +51,24 @@ type ResponseStandard struct {
 	NextCursor string      `json:"next_cursor"`
 }
 
-func StandardResponse(input interface{}, message string) (statusCode int64, output interface{}) {
+func StandardResponse(input interface{}, message string) (statusCode int, output interface{}) {
 	output = ResponseStandard{
 		Data:    input,
-		Message: "Ok",
+		Message: message,
 	}
 	statusCode = http.StatusOK
 	return
 }
 
-func ErrorResponse(err error) (statusCode int64, output interface{}) {
+func ErrorResponse(err error) (statusCode int, output interface{}) {
 	output = ResponseError{
 		Message: err.Error(),
 	}
-	statusCode = int64(getStatusCode(err))
+	statusCode = int(getStatusCode(err))
 	return
 }
 
-func ListResponse(input interface{}, nextCursor string, message string) (statusCode int64, output interface{}) {
+func ListResponse(input interface{}, nextCursor string, message string) (statusCode int, output interface{}) {
 	output = ResponseList{
 		Data:       input,
 		NextCursor: nextCursor,
