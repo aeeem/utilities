@@ -46,9 +46,8 @@ type ResponseList struct {
 }
 
 type ResponseStandard struct {
-	Message    string      `json:"message"`
-	Data       interface{} `json:"data"`
-	NextCursor string      `json:"next_cursor"`
+	Message string      `json:"message"`
+	Data    interface{} `json:"data"`
 }
 
 func StandardResponse(input interface{}, message string) (statusCode int, output interface{}) {
