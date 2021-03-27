@@ -95,6 +95,8 @@ func getStatusCode(err error) int {
 		return http.StatusBadRequest
 	case ErrForbiden:
 		return http.StatusForbidden
+	case ErrDuplicateLogin:
+		return http.StatusConflict
 	default:
 		return http.StatusInternalServerError
 	}
