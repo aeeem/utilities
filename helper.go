@@ -90,7 +90,7 @@ func getStatusCode(err error) int {
 	case ErrUnauthorized:
 		return 401
 	case ErrDuplicateLogin:
-		return 409
+		return 419
 	case ErrConflict:
 		return 409
 	case ErrNotFound:
