@@ -59,9 +59,12 @@ func StandardResponse(input interface{}, message string) (statusCode int, output
 	return
 }
 
-func ErrorResponse(err error) (statusCode int, output interface{}) {
+func ErrorResponse(err error, message string) (statusCode int, output interface{}) {
+	if message == "" {
+		message = err.Error()
+	}
 	output = ResponseError{
-		Message: err.Error(),
+		Message: message,
 	}
 	statusCode = int(getStatusCode(err))
 	return
