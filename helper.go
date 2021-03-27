@@ -85,18 +85,21 @@ func getStatusCode(err error) int {
 	}
 
 	switch err {
-	case ErrInternalServerError:
-		return http.StatusInternalServerError
-	case ErrNotFound:
-		return http.StatusNotFound
-	case ErrConflict:
-		return http.StatusConflict
 	case ErrBadParamInput:
-		return http.StatusBadRequest
-	case ErrForbiden:
-		return http.StatusForbidden
+		return 40000
+	case ErrUnauthorized:
+		return 40001
 	case ErrDuplicateLogin:
-		return http.StatusConflict
+		return 40002
+	case ErrConflict:
+		return 40003
+	case ErrNotFound:
+		return 40004
+	case ErrInternalServerError:
+		return 40005
+	case ErrForbiden:
+		return 40006
+
 	default:
 		return http.StatusInternalServerError
 	}
