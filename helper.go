@@ -76,6 +76,8 @@ func ListResponse(input interface{}, nextCursor string, message string) (statusC
 		NextCursor: nextCursor,
 		Message:    message,
 	}
+	statusCode = http.StatusOK
+
 	return
 }
 
