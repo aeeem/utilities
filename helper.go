@@ -98,9 +98,9 @@ func getStatusCode(err error) int {
 	case ErrNotFound:
 		return 404
 	case ErrInternalServerError:
-		return 405
+		return 500
 	case ErrForbiden:
-		return 406
+		return 403
 
 	default:
 		return http.StatusInternalServerError
