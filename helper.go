@@ -60,12 +60,13 @@ func StandardResponse(input interface{}, message string) (statusCode int, output
 	return
 }
 
-func ErrorResponse(err error, message string) (statusCode int, output interface{}) {
+func ErrorResponse(err error, message string,errorCode int) (statusCode int, output interface{}) {
 	if message == "" {
 		message = err.Error()
 	}
 	output = ResponseError{
 		Message: message,
+		ErrorCode: errorCode,
 	}
 	statusCode = int(getStatusCode(err))
 	return
