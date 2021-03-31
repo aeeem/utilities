@@ -37,6 +37,7 @@ func EncodeCursor(t time.Time) string {
 type ResponseError struct {
 	Message string      `json:"message"`
 	Data    interface{} `json:"data"`
+	ErrorCode int    `json:"error_code"`
 }
 
 type ResponseList struct {
