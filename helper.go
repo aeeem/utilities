@@ -45,6 +45,12 @@ type ResponseList struct {
 	NextCursor string      `json:"next_cursor"`
 }
 
+type ResponseListOffset struct {
+	Message   string      `json:"message"`
+	Data      interface{} `json:"data"`
+	TotalItem int64       `json:"total_item"`
+}
+
 type ResponseStandard struct {
 	Message string      `json:"message"`
 	Data    interface{} `json:"data"`
@@ -81,6 +87,16 @@ func ListResponse(input interface{}, nextCursor string, message string) (statusC
 	return
 }
 
+func ListResponseWithOffsetPagging(input interface{}, TotalItem int64, message string) (statusCode int, output interface{}) {
+	output = ResponseListOffset{
+		Data:      input,
+		TotalItem: TotalItem,
+		Message:   message,
+	}
+	statusCode = http.StatusOK
+
+	return
+}
 func getStatusCode(err error) int {
 	if err == nil {
 		return http.StatusOK
