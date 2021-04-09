@@ -37,6 +37,7 @@ func EncodeCursor(t time.Time) string {
 type ResponseError struct {
 	Message string      `json:"message"`
 	Data    interface{} `json:"data"`
+	ErrorCode int    `json:"error_code"`
 }
 
 type ResponseList struct {
@@ -65,12 +66,13 @@ func StandardResponse(input interface{}, message string) (statusCode int, output
 	return
 }
 
-func ErrorResponse(err error, message string) (statusCode int, output interface{}) {
+func ErrorResponse(err error, message string,errorCode int) (statusCode int, output interface{}) {
 	if message == "" {
 		message = err.Error()
 	}
 	output = ResponseError{
 		Message: message,
+		ErrorCode: errorCode,
 	}
 	statusCode = int(getStatusCode(err))
 	return
