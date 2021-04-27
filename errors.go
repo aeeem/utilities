@@ -15,5 +15,5 @@ var (
 	ErrUnauthorized = errors.New("Unauthorize")
 	ErrForbiden     = errors.New("The Resource Is Forbidden")
 	// ErrDuplicateLogin  will throw if the given request-body or params is not valid
-	ErrDuplicateLogin = errors.New("User Already Login")
+	ErrDuplicateLogin = errors.New("User Already Login, if its not you please change your password.")
 )
