@@ -89,7 +89,7 @@ func ListResponse(input interface{}, nextCursor string, message string) (statusC
 	return
 }
 
-func ListResponseWithOffsetPagging(input interface{}, TotalItem int64, message string) (statusCode int, output interface{}) {
+func ListResponseWithOffsetPaging(input interface{}, TotalItem int64, message string) (statusCode int, output interface{}) {
 	output = ResponseListOffset{
 		Data:      input,
 		TotalItem: TotalItem,
