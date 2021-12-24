@@ -132,6 +132,8 @@ func getStatusCode(err error) int {
 		return 500
 	case ErrForbiden:
 		return 403
+	case ErrNeedUpdate:
+		return 401
 
 	default:
 		return http.StatusInternalServerError
